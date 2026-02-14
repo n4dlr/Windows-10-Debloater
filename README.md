@@ -1,144 +1,72 @@
-Windows 10 Debloater Script - v2.5
+# God Debloater v1.1
 
-📋 Script Haqqında
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078d4.svg)
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue.svg)
 
-Bu PowerShell scripti Windows 10 sistemindən lazımsız və istənməyən proqramları təmizləmək üçün hazırlanıb. Script tam Azərbaycan dilindədir və istifadəsi asandır.
-
-⚠️ ƏHƏMİYYƏTLİ XƏBƏRLƏR
-
-Bu script aşağıdakı Windows komponentlərini TAMAMİLƏ SİLƏCƏK:
-
-🗑️ SİLİNƏCƏKLƏR:
-
-· Windows Defender (tamamilə)
-· Microsoft Edge (brauzer, WebView2, yeniləmələr)
-· OneDrive (tamamilə)
-· Windows Mağazası və bütün UWP proqramları
-· Cortana (səsli köməkçi)
-· Xbox və bütün oyun xidmətləri
-· Məlumat toplama və izləmə xidmətləri
-· Lazımsız proqramlar (Spotify, Netflix, TikTok və s.)
-
-⚙️ DEAKTİV EDİLƏCƏKLƏR:
-
-· Windows Yeniləmələri (avtomatik)
-· Windows Təhlükəsizlik Mərkəzi
-· Windows Rəy Mərkəzi
-· Fərdiləşdirilmiş təcrübələr
-
-⚠️ NƏTİCƏLƏR:
-
-1. Windows Defender silinəcək - MÜTLƏQ BAŞQA ANTİVİRUS QURAŞDIRIN!
-2. Microsoft Edge silinəcək - YENİ BRAUZER QURAŞDIRMAQ ZƏRURİDİR!
-3. Windows Update söndürüləcək - ÖZÜNÜZ YENİLƏMƏLƏR ETMƏLİSİNİZ!
-4. OneDrive silinəcək - GOOGLE DRIVE VƏ YA DROPBOX İSTİFADƏ EDİN!
-
-📁 YARADILAN FAYLLAR
-
-Script bu faylları yaradacaq:
-
-1. Gündəlik faylı - %TEMP%\Windows10_Debloat_YYYYMMDD_HHMMSS.log
-2. Transkript faylı - %TEMP%\Windows10_Debloat_Transcript_YYYYMMDD_HHMMSS.log
-3. Backup qovluğu - %TEMP%\Debloat_Backup_YYYYMMDD_HHMMSS\
-4. Sistem Bərpa Nöqtəsi - "Windows 10 Debloat Script" adı ilə
-
-🚀 İSTİFADƏ QAYDASI
-
-1. ƏVVƏLCƏDƏN HAZIRLIQ:
-
-```bash
-# 1. Sisteminizin backup-unu edin
-# 2. Başqa antivirus proqramı hazırlayın
-# 3. İstədiyiniz brauzeri hazırlayın
-# 4. Ofis proqramına ehtiyacınız varsa, LibreOffice hazırlayın
-```
-
-2. SCRİPTİ İŞƏ SALMAQ:
-
-1. Faylı sağ klikləyin və "Run as Administrator" seçin
-2. İki dəfə təsdiq verin ("Y" yazın)
-3. Scriptin işləməsini gözləyin (10-20 dəqiqə)
-4. Sistemin yenidən başlamasını gözləyin
-
-3. PARAMETRLƏR (İSTƏYƏ BAĞLI):
-
-```powershell
-# Nümunələr:
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -SkipWarning           # Xəbərdarlıq göstərmə
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -NoRestart             # Yenidən başlatma
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -SkipApps              # Proqramları silmə
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -SkipServices          # Xidmətlərə toxunma
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -SkipOptimization      # Optimizasiya etmə
-.\WINDOWS 10 ULTRA DEBLOATER.ps1 -SkipPrivacy           # Məxfilik ayarlarına toxunma
-```
-
-🔒 TƏHLÜKƏSİZLİK XİDMƏTLƏRİ (QORUNUR)
-
-Bu xidmətlərə TOXUNULMAYACAQ:
-
-· Səs xidmətləri (Realtek, Intel, NVIDIA)
-· Şəbəkə xidmətləri (Wi-Fi, Ethernet)
-· Display driver xidmətləri
-· Disk və partition xidmətləri
-· USB və PnP xidmətləri
-· Printer və skaner xidmətləri
-· Task Scheduler (əsas hissəsi)
-
-📊 ƏMƏLİYYAT STATİSTİKASI
-
-Script aşağıdakıları edəcək:
-
-1. Windows Proqramları - 50+ lazımsız proqram silinəcək
-2. Microsoft Edge - Tamamilə silinəcək
-3. OneDrive - Tamamilə silinəcək
-4. Windows Defender - Deaktiv ediləcək
-5. Xbox & Oyunlar - Silinəcək
-6. Məlumat toplama - 15+ xidmət deaktiv ediləcək
-7. Windows Update - Deaktiv ediləcək
-8. Planlaşdırılmış tapşırıqlar - 20+ task silinəcək
-9. Pagefile - Optimallaşdırılacaq (2048-4096MB)
-10. Enerji planı - "Ultimate Performance" aktiv ediləcək
-11. Görüntü effektləri - Optimallaşdırılacaq
-12. Xidmətlər - 30+ xidmət optimallaşdırılacaq
-13. Məxfilik ayarları - Tətbiq ediləcək
-14. Disk təmizliyi - Həyata keçiriləcək
-
-🛠️ SONRAKİ ADDIMLAR
-
-Script bitdikdən sonra:
-
-1. Antivirus quraşdırın - Malwarebytes, Kaspersky, Norton
-2. Brauzer quraşdırın - Chrome, Firefox, Opera, Brave
-3. Ofis proqramı quraşdırın - LibreOffice, Office 365
-4. Cloud storage quraşdırın - Google Drive, Dropbox
-5. Sisteminizi yoxlayın - Bütün funksiyalar işləyir?
-
-❓ TEZ-TEZ VERİLƏN SUALLAR
-
-S: Scripti necə ləğv edim?
-C: İstənilən vaxt Ctrl+C basın və ya təsdiq mərhələsində "N" yazın.
-
-S: Windows Defender-i geri qaytara bilərəmmi?
-C: Xeyr, tamamilə silinir. Başqa antivirus quraşdırmalısınız.
-
-S: Windows Update-i yenidən aktiv edə bilərəmmi?
-C: Bəli, əllə Servislər pəncərəsindən aktiv edə bilərsiniz.
-
-S: Log fayllarını harada tapa bilərəm?
-C: %TEMP% qovluğunda (C:\Users\[adınız]\AppData\Local\Temp)
-
-📞 DƏSTƏK
-
-Script ilə bağlı problem olarsa:
-
-1. Log fayllarına baxın
-2. Sistem Bərpa Nöqtəsindən istifadə edin
-3. Backup qovluğundakı .reg fayllarını istifadə edin
-
-⚖️ QEYD
-
-Bu script TƏHLÜKƏSİZ DEYİL və İSTİFADƏ ÖZ TƏHLÜKƏNİZDƏDİR. Yalnız təcrübəli istifadəçilər üçün nəzərdə tutulub. Scriptin müəllifi heç bir zərərdən məsul deyil.
+**God Debloater** is a professional-grade Windows optimization and debloat tool designed to improve system performance, privacy, and gaming experience. Built with a modern GUI and a safe, modular architecture, it allows users to reclaim control over their Windows environment.
 
 ---
 
-⚠️ İSTİFADƏDƏN ƏVVƏL BACKUP EDİN! ⚠️
+## 🚀 Key Features
+
+-   **Modern GUI**: A clean, responsive interface built with WPF.
+-   **Safe by Design**: Automatically creates **System Restore Points** before applying major changes.
+-   **App Management**: Easily remove bloatware (UWP apps) and standard Win32 programs.
+-   **System Optimization**: 
+    -   **Privacy Tweaks**: Minimize telemetry and data collection.
+    -   **Gaming Tweaks**: Optimize for performance and disable unnecessary game recording services.
+    -   **Advanced Tweaks**: Visual effects adjustment, power plan optimization, and temporary file cleaning.
+-   **Service Management**: Disable non-essential services categorized by risk level (Safe, Moderate, Risky).
+-   **Startup Control**: Manage and disable unnecessary startup items and scheduled tasks.
+-   **Rollback System**: Integrated change logging to revert tweaks if needed.
+
+---
+
+## 🛠️ Prerequisites
+
+-   **Windows 10 or 11**
+-   **PowerShell 5.1 or higher**
+-   **Administrator Privileges** (required to modify system settings)
+
+---
+
+## 📖 How to Use
+
+1.  **Download/Clone** the repository.
+2.  Right-click `Run-GodDebloater.bat` and select **Run as Administrator**.
+    -   *The launcher will automatically request admin rights if you forget.*
+3.  The GUI will open. Use the tabs on the left to navigate through different categories.
+4.  **Scan** your system to see current status and recommended optimizations.
+5.  Select your desired tweaks and click **Apply**.
+6.  **Reboot** your system for all changes to take full effect.
+
+---
+
+## 🛡️ Safety & Disclaimer
+
+> [!IMPORTANT]
+> While this tool is designed for safety, modifying system settings always carries a small risk. 
+> 1. **Always** let the tool create a Restore Point.
+> 2. Avoid disabling services marked as **Risky** unless you are an advanced user.
+> 3. This software is provided "as is", without warranty of any kind.
+
+---
+
+## 📦 Project Structure
+
+-   `God-Debloater.ps1`: The main script containing the logic and GUI definition.
+-   `Run-GodDebloater.bat`: A convenient launcher that ensures the script runs with the correct permissions and execution policy.
+-   `God Debloater/`: Support files and resources.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details (or add one if applicable).
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this project, submit issues, or create pull requests to help improve Windows for everyone!
